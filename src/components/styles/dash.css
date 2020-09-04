@@ -1,0 +1,364 @@
+.dashboard{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    transition: 0.5s;
+    font: small-caption;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+
+
+}
+.profileheader{
+    height: 100px;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+
+
+}
+.username{
+    font-size: 1.2em;
+    text-align: left;
+    font-weight: bold;
+    text-align: left;
+    color: rgb(220, 83, 20);
+    margin-left: 100px;
+
+}
+.profileinfo{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    
+}
+.logout{
+    width: 100px;
+    height: 50px;
+    font-size: 1em;
+    line-height: 2.54em;
+    margin-right: 50px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    outline: none;    
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.logout:hover{
+    background-color: #31837f;
+    color: white;
+
+}
+.dashpanelcontainer{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    
+
+}
+.prospectospanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    width: 90%;
+    height: max-content;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    
+
+}
+.prospectospanel > button{
+    margin-bottom: 30px;
+
+}
+.prospectospanel > h3 , .newsfeed >h3{
+    text-align: left;
+    color: rgb(220, 83, 20);
+    width: 90%;
+
+
+}
+.prospectos_ulist{
+    list-style: none;
+    height: max-content;
+    width: max-content;
+    max-width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: right;
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+
+}
+.prospectoitem{
+    background-color: rgba(255, 255, 255, 255);
+    height: 50px;
+    width:  80vw;
+    margin: 0;
+    margin-right: 20px;    
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    
+}
+.prospectoitem:hover{
+    transform: scale(1.02);
+    transition: 0.5s;
+    background-color: #31837f;
+
+}
+.prospectoitemname{    
+    top: 0;
+    left: 0%;
+    color: rgb(29, 29, 29);
+    font-weight: bold;
+    width: 200px;    
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;    
+    font-size: 1em;
+    background-color: rgb(236, 236, 236);    
+    margin-bottom: 0;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 15px;
+}
+.prospectoitemstatus{   
+    bottom: 0;
+    left: 0;
+    color: rgb(27, 27, 27);
+    width: 200px;    
+    font-weight: bold;    
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;    
+    font-size: 1em;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 0;
+    
+    line-height: 15px;
+    text-align: center;
+    border-radius: 15px;
+    
+}
+.prospectophotoholder{
+    height: 110px;
+    width: 110px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    clip-path: circle(50% at 50% 50%);
+
+}
+.prospectoitemfoto{
+    top: 0;
+    width: 100%;
+    z-index:810;
+    margin-bottom: 0;
+    
+}
+.fileinput{
+    border: none;
+
+}
+.newsfeed{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: auto;
+    min-height: 400px;
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    align-items: center;
+    margin-top: 5px;
+   
+}
+.newsfeed,.prospectospanel,.profileheader,.postitem{
+    -webkit-box-shadow: 0px 2px 5px 4px rgba(184,184,184,0.57);
+    -moz-box-shadow: 0px 2px 5px 4px rgba(184,184,184,0.57);
+    box-shadow: 0px 2px 5px 4px rgba(184,184,184,0.57);
+}
+.postitem{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+
+
+
+}
+.postitem_margin{
+    width: 90%;
+    height: auto;
+    min-height: 80%;
+    padding: 0;
+    margin: 0;
+
+    background-color: rgb(255, 255, 255);
+    
+
+}
+.post_name{
+    color: rgb(40, 124, 124);
+
+}
+.posttitle{
+    font-weight: normal;
+    font-size: 1.5em;
+}
+.postmessage{
+    font-weight: normal;
+    font-size: 1.2em;
+
+    
+
+}
+.postheaderitem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+}
+.newpostbutton{
+    height: 40px; 
+    width: 100px;  
+    border: none;
+    border-radius: 10px; 
+}
+.feed_ulist{
+    width: 90%;
+    height: auto;
+    min-height: 400px;
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+}
+.comentItem{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+
+}
+.comentbox_ulist{
+    width: 100%;
+    padding: 0;    
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    list-style: none;
+
+
+}
+.coment_name,.coment_message{
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+
+}
+.coment_name{
+    font-size: 1.0em;
+    color: #31837f;
+    font-weight: bold;
+}
+.coment_message{
+    font-size: 1.1em;
+    color: black;
+    font-weight: normal;
+
+}
+.postcoment_button{
+    width: 20%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    
+
+}
+.postcoment_textbox{
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-bottom: 0.08em;
+    border-bottom-style: solid;
+    border-bottom-color: #31837f;
+    
+    outline: none;
+
+}
+.postcoment{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+
+}
+.timer{
+    position: fixed;
+    z-index: 1000;
+    top: 5px;
+    left: 5px;
+
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    height: 200px;
+    width: 100px;
+
+}

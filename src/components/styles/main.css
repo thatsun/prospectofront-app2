@@ -1,0 +1,314 @@
+
+html{
+    padding: 0;
+    margin: 0; 
+    overflow: hidden;
+       
+    
+    
+}
+html,body,.fullscreencontainer,.midlepanel_h{
+    width: 100%;
+
+}
+html,body{
+    padding: 0;
+    margin: 0;
+    
+    height: 100vh;
+    
+
+}
+.fullscreencontainer{
+    
+    height: auto;
+    min-height: 100vh;
+    background-color: rgb(199, 199, 202);
+    padding: 0;
+    margin: 0;
+    
+
+}
+.cover{
+    height: 100%;
+    width: auto;
+    background-color: darkorange;
+
+
+
+}
+.logo{
+
+    height: 200px;
+    width: 200px;
+    clip-path: circle(50% at 50% 50%);
+
+
+}
+.centerlogo{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.midlepanel_h{
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+
+}
+.midlepanel_h2{
+    height: 50vh;
+    background-color: rgb(225, 228, 228);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+
+}
+.titlepanel{
+    font-family: sans-serif;
+    font-size: 1.5em;
+    width: 280px;
+    text-align: center;
+
+}
+.mesagetext{
+    font-family: sans-serif;
+    font-size: 1em;
+    width: 250px;
+
+}
+.textbox{
+    width: 300px;
+    font-size: 1em;
+    line-height: 2.54em;
+    margin-top: 10px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 0.08em;
+    border-bottom-style: solid;
+    border-bottom-color: #31837f;
+    
+    outline: none;
+
+
+}
+.cafe{
+    background-color: #31837f;
+    color: white;
+
+}
+.cafe:hover{
+    transform: scale(1.1);
+    transition: 0.25s;
+}
+.blanco{
+    background-color: rgb(255, 255, 255);
+    color:#31837f;
+
+}
+.blanco:hover{
+    transform: scale(1.1);
+    transition: 0.25s;
+}
+.buton_normal{
+    width: 320px;
+    height: 50px;
+    font-size: 1em;
+    line-height: 2.54em;
+    margin-top: 20px;
+    padding-left: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.buton_border{
+    width: 320px;
+    height: 50px;
+    font-size: 1em;
+    line-height: 2.54em;
+    margin-top: 20px;
+    padding-left: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+
+    border: 0.08em;
+    
+    border-style: solid;
+
+    border-color: #31837f;
+    outline: none;
+    cursor: pointer;
+
+}
+.logochico{
+    height: 150px;
+}
+.loginmodal{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(59, 59, 59, 0.658);
+    transition: 0.5s;
+
+
+}
+.loadingbox{
+    z-index: 900;
+
+}
+.messagebox{
+    z-index: 800;
+
+}
+.loginboxes{
+    z-index: 600;
+
+}
+.loginformbox{
+    height: 80%;
+    width:500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    
+
+}
+.bigform{
+    height: 98%;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+.loginformbox > h1{
+    color:  #31837f;
+}
+.openmodal{
+    left: 0;
+    transition: 0.25s;
+}
+.prospectdatosbox{
+    height: 98%;
+    width:90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+.capturadatos{
+    height: 98%;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.subedocumentos{
+    height: 98%;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.documentoitem{
+    height: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+
+}
+.documentoitem_text{
+    color: #31837f;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+.textboxfile{
+    height: 30px;
+    width: 200px;
+    background-color: rgb(248, 248, 248);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+    
+}
+.deletefile{
+    height: 30px;
+    width: 60px;
+    background-color: #ffffff;
+    color: #31837f;
+    text-decoration: none;
+    border-radius: 10px;
+
+    border: 0.08em;
+    
+    border-style: solid;
+
+    border-color: #31837f;
+    outline: none;
+    cursor: pointer;
+}
+.caja1{
+    width: 300px;   
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    background-color: rgb(255, 255, 255); 
+    padding: 0;
+    margin: 0;
+}
+.documentoname{
+    width: 300px;
+    font-size: 1em;
+    line-height: 2.54em;
+    margin-top: 10px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 0.08em;
+    border-bottom-style: solid;
+    border-bottom-color: #31837f;
+    
+    outline: none;
+}

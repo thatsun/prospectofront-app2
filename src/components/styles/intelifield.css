@@ -1,0 +1,39 @@
+.intelifield{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    text-align: left;
+    width: 400px;
+    height: 35px;
+    margin: 2px;
+    
+}
+.intelifield_label,.intelifield_data{
+    width: 200px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.intelifield_data_text{
+    margin-left: 3px;
+    font-weight: normal;
+}
+.intelibox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 200px;
+    height: max-content;
+    padding: 0px;
+    margin: 0px;
+}
+.intelifield_data{
+    border-radius: 2px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(12, 12, 12);
+    
+}
+.intelifield_label{    
+    color: rgb(43, 70, 61);
+}
