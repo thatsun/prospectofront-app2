@@ -1,8 +1,8 @@
 .Dropzone {
-    height: 50px;
-    width: 315px;
-    background-color: #fff;
-    border: 2px dashed rgb(187, 186, 186);
+    height: 30px;
+    width: 120px;
+    background-color: rgb(32, 117, 113);
+    border: 2px rgb(32, 133, 119);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -10,17 +10,20 @@
     flex-direction: column;
     font-size: 16px;
     margin-top: 20px;
+    padding: 0;
+    margin: 0;
+    color: aliceblue;
 }
 .Icon {
     opacity: 0.3;
-    height: 64px;
+    height: 30px;
     width: 64px;
 }
 .filewraper{
     position: absolute;
     overflow: hidden;
-    height: 50px;
-    width: 315px;
+    height: 30px;
+    width: 120px;
     background-color: blue;
     opacity: 0;
     padding: 0;

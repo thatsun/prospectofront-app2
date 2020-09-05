@@ -235,6 +235,7 @@ html,body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #ffffff;
     
 }
 .subedocumentos{
@@ -248,13 +249,13 @@ html,body{
 }
 .documentoitem{
     height: 40px;
-    width: 300px;
+    width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: rgb(255, 255, 255);
     padding: 0;
-    margin: 0;
+    margin: 2px;
 
 }
 .documentoitem_text{
@@ -290,7 +291,8 @@ html,body{
     cursor: pointer;
 }
 .caja1{
-    width: 300px;   
+    width: 800px;
+    height: 60vh;   
     display:  flex;
     flex-direction: column;
     align-items: center;
@@ -298,6 +300,8 @@ html,body{
     background-color: rgb(255, 255, 255); 
     padding: 0;
     margin: 0;
+    overflow: scroll;
+    
 }
 .documentoname{
     width: 300px;
@@ -311,4 +315,30 @@ html,body{
     border-bottom-color: #31837f;
     
     outline: none;
+}
+.addfiles{
+    height: 30px;
+    width: 120px;
+    background-color: #31837f;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+
+    border: 0.08em;
+    
+    border-style: solid;
+
+    border-color: #31837f;
+    outline: none;
+    cursor: pointer;
+}
+.prospectodatailbox{
+    height: 80%;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    background-color: #ffffff;
+    
 }

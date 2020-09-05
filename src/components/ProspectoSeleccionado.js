@@ -15,6 +15,7 @@ const ProspectoSeleccionado= (props) =>{
     if (prospectodata.name === null) {
         return null;
     }
+    
 
     return(
         
@@ -29,6 +30,7 @@ const ProspectoSeleccionado= (props) =>{
             <Intelifield  userroll={userroll} hidefrom={"none"} label={'Phonenumber'} data={prospectodata.phonenumber} />
             <Intelifield  userroll={userroll} hidefrom={"none"} label={'RFC'} data={prospectodata.rfc} />
             <Intelifield  userroll={userroll} hidefrom={"none"} label={'Status'} data={prospectodata.status} />
+            <textarea className="inteliinputtextbox" readOnly={true} placeholder={''} value={prospectodata.reject_details}></textarea>
 
 
             

@@ -14,6 +14,7 @@ import Loading from './components/Loading.js';
 
 
 
+
 const App= () =>{    
     const [loged,setLoged]=useState(false);
     const [actualtoken,setToken]=useState('');
@@ -306,7 +307,7 @@ const App= () =>{
                 <Login login={handleLoginButton} setuser={setUser} setpass={setPassword} user={user} password={password} close={closeLoginBox} />
                 <Singup singup={handleSingUpButton} setuser={setnewUseremail} setpass={setnewUserPassword} user={newuseremail} password={newuserpassword} close={closeSingupBox} username={newusername} setUsername={setnewUserName} userroll={newuserroll} setUserroll={setnewUserroll}/>
                 <Dash user={user} loged={loged} logout={handlelogoutButton} token={actualtoken} userid={userid} prospectosData={prospectosData} setProspectosdata={setProspectosdata} username={currentusername} userroll={userroll} />
-                <Message close={closemmessagebox} />
+                <Message close={closemmessagebox} />                
                 <Loading />
                 
         </div>    

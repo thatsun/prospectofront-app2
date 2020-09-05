@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Dropzone from './Dropzone.js'
 import Autohidebutton from './Autohidebutton.js';
 import Autohidelabel from './Autohidelabel.js';
 import ProspectoSeleccionado from './ProspectoSeleccionado.js'
 import Archivosmgr from './Archivosmgr.js'
+import Inteliinput from './Inteliinput.js'
+import Advertencia from './Advertencia.js';
 
 const Prospecto=(props)=> {
     const {openstatus} = props;
@@ -11,14 +12,14 @@ const Prospecto=(props)=> {
     return (
       <ul className="propectos_ulist">
         {prospectos.map((prospecto) =>
-          <ListItem key={prospecto.Id} id={prospecto.Id} name={prospecto.name} status={prospecto.status} openstatus={openstatus} prospectodata={prospecto}/>
+          <ListItem key={prospecto.Id} id={prospecto.Id} name={prospecto.name} lastname={prospecto.lastname} lastlastname={prospecto.lastlastname} status={prospecto.status} openstatus={openstatus} prospectodata={prospecto}/>
         )}
       </ul>
     );
 }
 
 const ListItem=(props)=>{
-    const {id,name,status,openstatus,prospectodata}=props;
+    const {id,name,lastname,lastlastname,status,openstatus,prospectodata}=props;
     const handledetailsbutton= (e)=>{
         e.preventDefault();
 
@@ -32,7 +33,9 @@ const ListItem=(props)=>{
     return(
         <div className="prospectoitem" onClick={e=>handledetailsbutton(e)}>            
             <h3 className="prospectoitemname">{name}</h3>                             
-            <h3 className="prospectoitemstatus">{status}</h3>
+            <h3 className="prospectoitemname">{lastname}</h3>
+            <h3 className="prospectoitemname">{lastlastname}</h3>
+            <h3 className="prospectoitemname">{status}</h3>
         </div>
     )
 }
@@ -53,7 +56,9 @@ const Prospectos= (props) =>{
     const [prospectoRfc,setRfc]=useState('');
     
     
-    const [files,setFiles]=useState(null);
+    const [files,setFiles]=useState([null,null,null,null,null,null,null,null,null,null]);
+    const [filenames,setFilenames]=useState(["","","","","","","","","",""]);
+    const [filepickshow,setpickfileshow]=useState([true,true,true,true,true,true,true,true,true,true]);
     
     
     
@@ -62,15 +67,10 @@ const Prospectos= (props) =>{
 
     const [prospectoId,setProspectoId]=useState('');
     const [prospectoSelectedData,setselectedProspectoData]=useState(null);
+    const [rejectiondetails,setRejectiondetails]=useState('');
 
     const {user,loged,userid,token,prospectosData,setProspectosdata,username,userroll}=props;
-    const imagechange=(e)=>{
-        e.preventDefault();        
-        
-        setFiles(e.target.files);   
-        
-        
-    }
+    
     const openstatus= (_id,_name,_status,_prospectodata)=>{
        
         
@@ -81,10 +81,30 @@ const Prospectos= (props) =>{
         document.getElementById("detailspanel").classList.add("openmodal");
 
     }
+    const resetprospectosinfo=()=>{
+        setProspectoname("");
+        setProspectoLastName("");
+        setProspectoLastLastName("");
+        setAdressSreet("");
+        setAdressNumber("");
+        setAdressColony("");
+        setAdressCp("");
+        setPhone("");
+        setRfc("");
+        setRejectiondetails("");
+        
+
+        setFilenames([""]);
+        setFiles([null]);
+        setpickfileshow([true]);
+
+
+    }
     const closeprospectosdetailspanel=(e)=>{
         e.preventDefault();
         
         document.getElementById("detailspanel").classList.remove("openmodal");
+
 
     }
     const rechazarprospecto=(e)=>{
@@ -94,21 +114,25 @@ const Prospectos= (props) =>{
     }
     const aprobarprospecto=(e)=>{
         e.preventDefault();
-        changestatus('aprobado');
+        changestatus('autorizado');
     }
     const changestatus=(_status)=>{
         
-        
+        if(_status==='rechazado' && rejectiondetails===''){
+            
+            document.getElementById("mesageboxtext").innerHTML='for prospect rejection the deatils field is mandatory';
+            document.getElementById("messagebox").classList.add("openmodal");
+            return;
+
+        }
         console.log(_status);
         
         var statusdata = {
             prosid: prospectoId,
             status: _status,
+            reject_details: rejectiondetails
         };
-        console.log(JSON.stringify(statusdata));
-        console.log(statusdata);
-        console.log(prospectoId);
-        console.log(_status);
+        
 
         fetch('/prospectos/status', {
             method: 'PATCH',
@@ -123,6 +147,8 @@ const Prospectos= (props) =>{
         ).then( ( data ) =>{
             //console.log(data);
             if(data.message==="updated"){
+
+                setRejectiondetails('');
                 let prospectossurl = '/prospectos/'+userid;
 
                 //console.log(dogsurl);
@@ -195,18 +221,42 @@ const Prospectos= (props) =>{
         
         document.getElementById("loadingbox").classList.add("openmodal");
 
-        let docs=document. getElementsByClassName("documentoname");
+        
 
         let filesstring="";
-        for(let i=0; i< docs.length ;i++){
-            filesstring=filesstring+docs[i].value;
-            if(i<docs.length-1){
-                filesstring=filesstring+".%.";
-            }         
+        let _filenamesfilter=[];
+        
+        for(let i=0; i< filenames.length ;i++){
+
+            if(filepickshow[i]===true){
+                if(filenames[i].length!==0 && files[i]!==null){
+                    _filenamesfilter.push(filenames[i]);
+                     
+    
+                }
+                else{
+                    document.getElementById("loadingbox").classList.remove("openmodal");
+                    document.getElementById("mesageboxtext").innerHTML='el campo nombre en los docuentos es obligatorio';
+                    document.getElementById("messagebox").classList.add("openmodal");
+                    return;
+                }
+
+            }
+            
+                  
 
 
         }
-        console.log(filesstring);
+
+        for(let e=0; e< _filenamesfilter.length ;e++){
+            filesstring=filesstring+ _filenamesfilter[e];
+            if(e<_filenamesfilter.length-1){
+                filesstring=filesstring+".%.";
+            }
+
+        }
+        
+        
         
         
 
@@ -225,10 +275,19 @@ const Prospectos= (props) =>{
         formdata.append('documentosnames', filesstring);
         formdata.append('status', "enviado");
         for (let i = 0 ; i < files.length ; i++) {
-            formdata.append('multi-files', files[i]);
+            if(filepickshow[i]===true){
+                if(files[i]!==null){
+                    formdata.append('multi-files', files[i]);
+                    
+    
+                }
+
+            }
+            
+            
         }
         
-        console.log(formdata);
+        
 
         fetch('/prospectos', {
             method: 'POST',
@@ -240,9 +299,10 @@ const Prospectos= (props) =>{
         }).then(resp => resp.json()
         ).then( ( data ) =>{
             //console.log(data);
-            setProspectoname('');
+            
             
             if(data.message==="prospecto creado"){
+                resetprospectosinfo();
                 document.getElementById("loadingbox").classList.remove("openmodal");
                 document.getElementById("mesageboxtext").innerHTML='prospecto añadido con exito';
                 document.getElementById("messagebox").classList.add("openmodal");
@@ -317,7 +377,9 @@ const Prospectos= (props) =>{
     }
     const closeprospectonewpanel=(e)=>{
         e.preventDefault();
+        resetprospectosinfo();
         document.getElementById("newprospectopanel").classList.remove("openmodal");
+        document.getElementById("advertencia").classList.remove("openmodal");
 
     }
     const openprospectonewpanel=(e)=>{
@@ -335,7 +397,17 @@ const Prospectos= (props) =>{
         )
 
     }
-    
+    const closeadvertencia=(e)=>{
+        e.preventDefault();
+        
+        document.getElementById("advertencia").classList.remove("openmodal");
+
+    }
+    const openadvertencia=(e)=>{
+        e.preventDefault();
+        
+        document.getElementById("advertencia").classList.add("openmodal");
+    }
 
     return(
         <div className="prospectospanel">
@@ -363,28 +435,37 @@ const Prospectos= (props) =>{
                         
                         </div>
                         <div className="subedocumentos">
-                            <Dropzone imagechange={imagechange}/>
-                            <Archivosmgr files={files} setFiles={setFiles}/>
+                            
+                            <Archivosmgr files={files} setFiles={setFiles} filenames={filenames} setFilenames={setFilenames} filepickshow={filepickshow} setpickfileshow={setpickfileshow}/>
                         </div>
                     </div>                    
                     <button className="buton_normal cafe" onClick={e =>addprospecto(e)}  >add prospect</button>
-                    <button className="buton_normal blanco" onClick={e =>closeprospectonewpanel(e)}  >nevermind</button>
+                    <button className="buton_normal blanco" onClick={e =>openadvertencia(e)}  >quit</button>
                 </div>
             </div>
             <div className="loginmodal" id={"detailspanel"}>
                 
                 <div className="bigform">
-                    <h1>Detalles de Prospecto</h1>                    
-                    <ProspectoSeleccionado prospectodata={prospectoSelectedData}/>
-                    <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'aprovar o rechazar prospecto'}/>
-                    <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'aprovar'} />
-                    <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'rechazar'} />
-                    <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'salir'} />
-                    
+                  
+                    <h1>Detalles de Prospecto</h1>
+                    <div className="prospectdatosbox" >
+                        <div className="prospectodatailbox">  
+                                        
+                            <ProspectoSeleccionado prospectodata={prospectoSelectedData}/>
+                        </div>
+                        <div className="prospectodatailbox">  
+                            <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'autorizar o rechazar prospecto'}/>
+                            <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'autorizar'} />
+                            <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'rechazar'} />
+                            <Inteliinput  userroll={userroll} hidefrom={'promo'} label={'in case of Rejection capture details'} data={rejectiondetails} setData={setRejectiondetails}/>
+                            <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'salir'} />
+
+                        </div>
+                    </div>                    
                     
                 </div>
             </div>       
-            
+            <Advertencia  exit={closeprospectonewpanel} resume={closeadvertencia} />
         </div>
     )
 
