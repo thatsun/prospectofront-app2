@@ -86,6 +86,9 @@ const Archivosmgr= (props) =>{
     }
     const addfiles=(e)=>{
         e.preventDefault();
+        if(filepickshow.length==10){
+            return;
+        }
 
         let _show=filepickshow.slice();
 

@@ -11,10 +11,6 @@ import Message from './components/Message.js';
 import Loading from './components/Loading.js';
 
 
-
-
-
-
 const App= () =>{    
     const [loged,setLoged]=useState(false);
     const [actualtoken,setToken]=useState('');
@@ -309,6 +305,8 @@ const App= () =>{
                 <Dash user={user} loged={loged} logout={handlelogoutButton} token={actualtoken} userid={userid} prospectosData={prospectosData} setProspectosdata={setProspectosdata} username={currentusername} userroll={userroll} />
                 <Message close={closemmessagebox} />                
                 <Loading />
+
+                
                 
         </div>    
         

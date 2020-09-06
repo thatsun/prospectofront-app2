@@ -14,7 +14,7 @@ const Dropzone=(props)=> {
                 className="FileInput"
                 id="imageuploader"
                 type="file"
-                multiple={true}
+                multiple={false}
                 onChange={e => imagechange(e)}
             />
 

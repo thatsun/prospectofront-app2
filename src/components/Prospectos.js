@@ -5,6 +5,7 @@ import ProspectoSeleccionado from './ProspectoSeleccionado.js'
 import Archivosmgr from './Archivosmgr.js'
 import Inteliinput from './Inteliinput.js'
 import Advertencia from './Advertencia.js';
+import Documentslist from './Documentslist.js';
 
 const Prospecto=(props)=> {
     const {openstatus} = props;
@@ -56,9 +57,9 @@ const Prospectos= (props) =>{
     const [prospectoRfc,setRfc]=useState('');
     
     
-    const [files,setFiles]=useState([null,null,null,null,null,null,null,null,null,null]);
-    const [filenames,setFilenames]=useState(["","","","","","","","","",""]);
-    const [filepickshow,setpickfileshow]=useState([true,true,true,true,true,true,true,true,true,true]);
+    const [files,setFiles]=useState([null]);
+    const [filenames,setFilenames]=useState([""]);
+    const [filepickshow,setpickfileshow]=useState([true]);
     
     
     
@@ -408,6 +409,17 @@ const Prospectos= (props) =>{
         
         document.getElementById("advertencia").classList.add("openmodal");
     }
+    const openAtachedDocs=(e)=>{
+        e.preventDefault();
+        
+        document.getElementById("attacheddocs").classList.add("openmodal");
+
+    }
+    const closeAtachedDocs=(e)=>{
+        e.preventDefault();
+        
+        document.getElementById("attacheddocs").classList.remove("openmodal");
+    }
 
     return(
         <div className="prospectospanel">
@@ -438,31 +450,44 @@ const Prospectos= (props) =>{
                             
                             <Archivosmgr files={files} setFiles={setFiles} filenames={filenames} setFilenames={setFilenames} filepickshow={filepickshow} setpickfileshow={setpickfileshow}/>
                         </div>
-                    </div>                    
+                    </div>
+                    <div className="formbuttonfooter">
                     <button className="buton_normal cafe" onClick={e =>addprospecto(e)}  >add prospect</button>
                     <button className="buton_normal blanco" onClick={e =>openadvertencia(e)}  >quit</button>
+                    </div>                    
+                    
                 </div>
             </div>
             <div className="loginmodal" id={"detailspanel"}>
                 
                 <div className="bigform">
                   
-                    <h1>Detalles de Prospecto</h1>
+                    <h1>Propsect info</h1>
                     <div className="prospectdatosbox" >
                         <div className="prospectodatailbox">  
                                         
                             <ProspectoSeleccionado prospectodata={prospectoSelectedData}/>
+                            <button className="buton_normal cafe" onClick={e =>openAtachedDocs(e)}  >Uploaded documents</button> 
                         </div>
-                        <div className="prospectodatailbox">  
-                            <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'autorizar o rechazar prospecto'}/>
-                            <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'autorizar'} />
-                            <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'rechazar'} />
+                        <div className="prospectodatailbox">
+                             
+                            <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'Autorize or reject prospect'}/>
+                            <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'Autorize'} />
+                            <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'Reject'} />
                             <Inteliinput  userroll={userroll} hidefrom={'promo'} label={'in case of Rejection capture details'} data={rejectiondetails} setData={setRejectiondetails}/>
-                            <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'salir'} />
+                            <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'Exit'} />
 
                         </div>
                     </div>                    
                     
+                </div>
+            </div>
+            <div className="loginmodal" id={"attacheddocs"}>
+                <div className="bigform">
+                    <Documentslist data={prospectoSelectedData} />
+                    <button className="buton_normal cafe" onClick={e =>closeAtachedDocs(e)}  >Exit</button>
+
+
                 </div>
             </div>       
             <Advertencia  exit={closeprospectonewpanel} resume={closeadvertencia} />

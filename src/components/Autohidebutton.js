@@ -15,7 +15,7 @@ const Autohidebutton= (props) =>{
     return(
         
         
-        <button className="buton_border blanco" onClick={(e) => handleclick(e)} >{action}</button>
+        <button className="buton_border cafe" onClick={(e) => handleclick(e)} >{action}</button>
     )
 
 }
