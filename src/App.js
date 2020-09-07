@@ -9,6 +9,8 @@ import Singup from './components/Singup.js';
 import Login from './components/Login.js';
 import Message from './components/Message.js';
 import Loading from './components/Loading.js';
+import axios from 'axios'
+
 
 
 const App= () =>{    
@@ -28,6 +30,30 @@ const App= () =>{
     const [newuserpassword,setnewUserPassword]=useState('');
     const [newusername,setnewUserName]=useState('');
     const [newuseremail,setnewUseremail]=useState('');
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(false);
+
+    const fetchUser = (data) => {
+        
+        setLoading(true)
+        setError(false)
+    
+        //make edit to redeploy
+        axios.post('.netlify/functions/userlogin',data)
+          .then((data) => {
+            console.log(data);
+          })
+          .catch(e => {
+            setError(true)
+            console.log(e)
+          })
+          .finally(() => {
+            setLoading(false)
+          })
+    }
+
+
+
     const useInterval=(callback, delay)=> {
         const savedCallback = useRef();
       
@@ -100,6 +126,8 @@ const App= () =>{
         var data = {email: user, password : password};
 
         document.getElementById("loadingbox").classList.add("openmodal");
+        fetchUser(data);
+        return;
 
         fetch(url, {
             method: 'POST',
