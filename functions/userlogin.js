@@ -9,7 +9,7 @@ exports.handler = async function (event) {
             mode: 'cors',
             body: event.body,
             headers: {
-            'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             
             }
         })

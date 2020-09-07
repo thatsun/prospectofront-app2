@@ -39,7 +39,7 @@ const App= () =>{
         setError(false)
     
         //make edit to redeploy
-        axios.post('.netlify/functions/userlogin',data)
+        axios.post({url:'.netlify/functions/userlogin',body:JSON.stringify(data)})
           .then((data) => {
             console.log(data);
           })
