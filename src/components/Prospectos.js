@@ -462,7 +462,7 @@ const Prospectos= (props) =>{
                 
                 <div className="bigform">
                   
-                    <h1>Propsect info</h1>
+                    <h1>Detalle del Propsecto</h1>
                     <div className="prospectdatosbox" >
                         <div className="prospectodatailbox">  
                                         
