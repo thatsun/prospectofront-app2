@@ -16,7 +16,7 @@ const Singup= (props) =>{
             
             <div className="loginformbox" >
                 <img className="logochico" src={logo} alt="logo"></img>
-                <h1 className="titlepanel">Create a new profile</h1>
+                <h1 className="titlepanel">Crear nuevo perfil</h1>
                 <input className="textbox" value={user} placeholder="email" type="text" onChange={(e) => setuser(e.target.value)}  ></input>
                 <input className="textbox" value={username} placeholder="username" type="text" onChange={(e) => setUsername(e.target.value)}  ></input>
                 <input className="textbox" value={password} placeholder="password" type="text" onChange={(e) => setpass(e.target.value)}  ></input>

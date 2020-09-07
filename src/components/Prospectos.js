@@ -212,11 +212,63 @@ const Prospectos= (props) =>{
     }
     const addprospecto=(e)=>{
         e.preventDefault();
-        if(files===null || prospectoName===''){
+        if(files===null){
             return;
 
         }
+        let validatorstring=[];
+        if(prospectoName===''){
+            validatorstring.push('nombre, ');
+
+        }
+        if(prospectoLastName===''){
+            validatorstring.push('apellido, ');
+
+        }
+        if(prospectoAdressStreet===''){
+            validatorstring.push('calle, ');
+
+        }
+        if(prospectoAdressNumber===''){
+            validatorstring.push('numero de casa, ');
+
+        }
+        if(prospectoAdressColony===''){
+            validatorstring.push('colonia,');
+
+        }
+        if(prospectoAdressCp===''){
+            validatorstring.push('codigo postal, ');
+
+        }
+        if(prospectoPhone===''){
+            validatorstring.push('telefono, ');
+
+        }
+        if(prospectoRfc===''){
+            validatorstring.push('RFC, ');
+
+        }
+        if(validatorstring.length>0){
+            let _message="Los campos:  ";
+
+            for(let p=0; p< validatorstring.length ;p++){
+                _message=_message+validatorstring[p];
+
+            }
+            _message=_message+'son requeridos';
+            document.getElementById("loadingbox").classList.remove("openmodal");
+            document.getElementById("mesageboxtext").innerHTML=_message;
+            document.getElementById("messagebox").classList.add("openmodal");
+            return;
+
+        }
+
+
         if(files.length===0){
+            document.getElementById("loadingbox").classList.remove("openmodal");
+            document.getElementById("mesageboxtext").innerHTML='un documento es requerido para realizar la captura';
+            document.getElementById("messagebox").classList.add("openmodal");
             return; 
         } 
         
