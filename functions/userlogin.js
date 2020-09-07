@@ -5,10 +5,15 @@ const API_ENDPOINT = 'https://serverprueba-con.herokuapp.com/user/login'
 
 exports.handler = async (event, context) => {
   let response
+  console.log(event.body);
   try {
     response = await axios.post({
         url:API_ENDPOINT,
-        body:event.body
+        body:event.body,
+        mode: 'cors',
+        headers: {
+           'Content-Type': 'application/json'
+        }
     })
   } catch (err) {
     return {
