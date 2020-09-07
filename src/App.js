@@ -39,7 +39,7 @@ const App= () =>{
         setError(false)
     
         //make edit to redeploy
-        axios.post({url:'.netlify/functions/userlogin',body:JSON.stringify(data)})
+        axios.post('.netlify.app/functions/userlogin',{body:JSON.stringify(data)})
           .then((data) => {
             console.log(data);
           })
@@ -50,7 +50,7 @@ const App= () =>{
           .finally(() => {
             setLoading(false)
           })
-          
+
     }
 
 
