@@ -5,7 +5,7 @@ import './styles/dropzone.css'
 const Dropzone=(props)=> {
   
     var {imagechange}=props;
-    let message="browse file";
+    let message="cargar";
     
     return(
         <div className="Dropzone">

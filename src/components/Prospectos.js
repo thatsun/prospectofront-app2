@@ -121,7 +121,7 @@ const Prospectos= (props) =>{
         
         if(_status==='rechazado' && rejectiondetails===''){
             
-            document.getElementById("mesageboxtext").innerHTML='for prospect rejection the deatils field is mandatory';
+            document.getElementById("mesageboxtext").innerHTML='para rechazar un prospecto favor d ecapturar las observaciones del rechazo';
             document.getElementById("messagebox").classList.add("openmodal");
             return;
 
@@ -237,7 +237,7 @@ const Prospectos= (props) =>{
                 }
                 else{
                     document.getElementById("loadingbox").classList.remove("openmodal");
-                    document.getElementById("mesageboxtext").innerHTML='el campo nombre en los docuentos es obligatorio';
+                    document.getElementById("mesageboxtext").innerHTML='uno o mas docuentos sin nombre, o no ha seleccionado un archivo, si no desea subir ese documento haga click en remove';
                     document.getElementById("messagebox").classList.add("openmodal");
                     return;
                 }
@@ -425,23 +425,23 @@ const Prospectos= (props) =>{
         <div className="prospectospanel">
             <div className="postheaderitem">
                 <h3>Prospectos</h3>
-                <Autohidebutton userroll={userroll} handleclick={openprospectonewpanel} hidefrom={'admin'} action={'New prospect'} />
+                <Autohidebutton userroll={userroll} handleclick={openprospectonewpanel} hidefrom={'admin'} action={'Nuevo prospecto'} />
                 
             </div>      
             <Prospecto prospectosData={prospectosData} openstatus={openstatus}/>            
             <div className="loginmodal" id={"newprospectopanel"}>                
                 <div className="bigform">
-                    <h1>Add a Prospect</h1>
+                    <h1>Agregar un Prospecto</h1>
                     <div className="prospectdatosbox">
                         <div className="capturadatos">
-                            <input className="textbox" value={prospectoName} type={"text"} placeholder={"name"} onChange={(e) => setProspectoname(e.target.value)}></input>
-                            <input className="textbox" value={prospectoLastName} type={"text"} placeholder={"lastname"} onChange={(e) => setProspectoLastName(e.target.value)}></input>
-                            <input className="textbox" value={prospectoLastLastName} type={"text"} placeholder={"second lastname"} onChange={(e) => setProspectoLastLastName(e.target.value)}></input>
-                            <input className="textbox" value={prospectoAdressStreet} type={"text"} placeholder={"adress street"} onChange={(e) => setAdressSreet(e.target.value)}></input>
-                            <input className="textbox" value={prospectoAdressNumber} type={"text"} placeholder={"adress number"} onChange={(e) => setAdressNumber(e.target.value)}></input>
-                            <input className="textbox" value={prospectoAdressColony} type={"text"} placeholder={"adress colony"} onChange={(e) => setAdressColony(e.target.value)}></input>
-                            <input className="textbox" value={prospectoAdressCp} type={"text"} placeholder={"adress cp"} onChange={(e) => setAdressCp(e.target.value)}></input>
-                            <input className="textbox" value={prospectoPhone} type={"text"} placeholder={"phone number"} onChange={(e) => setPhone(e.target.value)}></input>
+                            <input className="textbox" value={prospectoName} type={"text"} placeholder={"nombre"} onChange={(e) => setProspectoname(e.target.value)}></input>
+                            <input className="textbox" value={prospectoLastName} type={"text"} placeholder={"primer apellido"} onChange={(e) => setProspectoLastName(e.target.value)}></input>
+                            <input className="textbox" value={prospectoLastLastName} type={"text"} placeholder={"segundo apellido"} onChange={(e) => setProspectoLastLastName(e.target.value)}></input>
+                            <input className="textbox" value={prospectoAdressStreet} type={"text"} placeholder={"calle"} onChange={(e) => setAdressSreet(e.target.value)}></input>
+                            <input className="textbox" value={prospectoAdressNumber} type={"text"} placeholder={"numero de casa"} onChange={(e) => setAdressNumber(e.target.value)}></input>
+                            <input className="textbox" value={prospectoAdressColony} type={"text"} placeholder={"colonia"} onChange={(e) => setAdressColony(e.target.value)}></input>
+                            <input className="textbox" value={prospectoAdressCp} type={"text"} placeholder={"codigo postal"} onChange={(e) => setAdressCp(e.target.value)}></input>
+                            <input className="textbox" value={prospectoPhone} type={"text"} placeholder={"telefono"} onChange={(e) => setPhone(e.target.value)}></input>
                             <input className="textbox" value={prospectoRfc} type={"text"} placeholder={"rfc"} onChange={(e) => setRfc(e.target.value)}></input>
                     
                         
@@ -452,8 +452,8 @@ const Prospectos= (props) =>{
                         </div>
                     </div>
                     <div className="formbuttonfooter">
-                    <button className="buton_normal cafe" onClick={e =>addprospecto(e)}  >add prospect</button>
-                    <button className="buton_normal blanco" onClick={e =>openadvertencia(e)}  >quit</button>
+                    <button className="buton_normal cafe" onClick={e =>addprospecto(e)}  >Enviar prospecto</button>
+                    <button className="buton_normal blanco" onClick={e =>openadvertencia(e)}  >salir</button>
                     </div>                    
                     
                 </div>
@@ -467,15 +467,15 @@ const Prospectos= (props) =>{
                         <div className="prospectodatailbox">  
                                         
                             <ProspectoSeleccionado prospectodata={prospectoSelectedData}/>
-                            <button className="buton_normal cafe" onClick={e =>openAtachedDocs(e)}  >Uploaded documents</button> 
+                            <button className="buton_normal cafe" onClick={e =>openAtachedDocs(e)}  >Ver documentos</button> 
                         </div>
                         <div className="prospectodatailbox">
                              
-                            <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'Autorize or reject prospect'}/>
-                            <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'Autorize'} />
-                            <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'Reject'} />
-                            <Inteliinput  userroll={userroll} hidefrom={'promo'} label={'in case of Rejection capture details'} data={rejectiondetails} setData={setRejectiondetails}/>
-                            <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'Exit'} />
+                            <Autohidelabel userroll={userroll} hidefrom={'promo'} message={'Autorizar o rechazar prospecto'}/>
+                            <Autohidebutton userroll={userroll} handleclick={aprobarprospecto} hidefrom={'promo'} action={'Autorizar'} />
+                            <Autohidebutton userroll={userroll} handleclick={rechazarprospecto} hidefrom={'promo'} action={'Rechazar'} />
+                            <Inteliinput  userroll={userroll} hidefrom={'promo'} label={'en caso of rechazo capture observaciones'} data={rejectiondetails} setData={setRejectiondetails}/>
+                            <Autohidebutton userroll={userroll} handleclick={closeprospectosdetailspanel} hidefrom={'none'} action={'Salir'} />
 
                         </div>
                     </div>                    
@@ -485,7 +485,7 @@ const Prospectos= (props) =>{
             <div className="loginmodal" id={"attacheddocs"}>
                 <div className="bigform">
                     <Documentslist data={prospectoSelectedData} />
-                    <button className="buton_normal cafe" onClick={e =>closeAtachedDocs(e)}  >Exit</button>
+                    <button className="buton_normal cafe" onClick={e =>closeAtachedDocs(e)}  >Salir</button>
 
 
                 </div>

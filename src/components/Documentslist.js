@@ -67,7 +67,7 @@ const Documentslist= (props) =>{
             
             <div className='subedocumentos'>
                 <div className='documentostitulo'>
-                   <h1>{'Prospect documents'}</h1>
+                   <h1>{'Documentos subidos'}</h1>
                 </div>
                 <div className="filescaja1">
                 {data.documentsrequest.map((doc,index)=>{

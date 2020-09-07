@@ -21,8 +21,8 @@ const Singup= (props) =>{
                 <input className="textbox" value={username} placeholder="username" type="text" onChange={(e) => setUsername(e.target.value)}  ></input>
                 <input className="textbox" value={password} placeholder="password" type="text" onChange={(e) => setpass(e.target.value)}  ></input>
                 <input className="textbox" value={userroll} placeholder="userroll" type="text" onChange={(e) => setUserroll(e.target.value)}  ></input>
-                <button className="buton_normal cafe" onClick={(e) => singup(e)} >Singup</button>
-                <button className="buton_border blanco" onClick={(e) => close(e)} >Nevermind</button>
+                <button className="buton_normal cafe" onClick={(e) => singup(e)} >Registrar</button>
+                <button className="buton_border blanco" onClick={(e) => close(e)} >Cancelar</button>
 
 
 

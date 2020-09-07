@@ -296,8 +296,8 @@ const App= () =>{
                     <h1 className="titlepanel">
                         Prueba Prospectos.
                     </h1>
-                    <button className="buton_normal cafe" onClick={(e) => openLoginBox()} >Login</button>
-                    <button className="buton_border blanco" onClick={(e) => openSingupBox()} >SingUp</button>
+                    <button className="buton_normal cafe" onClick={(e) => openLoginBox()} >Entrar</button>
+                    <button className="buton_border blanco" onClick={(e) => openSingupBox()} >Registrarse</button>
 
                 </div>
                 <Login login={handleLoginButton} setuser={setUser} setpass={setPassword} user={user} password={password} close={closeLoginBox} />

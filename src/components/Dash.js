@@ -17,7 +17,7 @@ const Dash= (props) =>{
                     <h1 className="username">{username}</h1>
                 </div>
                 
-                <button className="logout blanco" onClick={(e) => logout(e)} >Logout</button>
+                <button className="logout blanco" onClick={(e) => logout(e)} >Salir</button>
 
             </div>
             <div className="dashpanelcontainer">

@@ -9,9 +9,9 @@ const Advertencia=(props)=>{
     return(
         <div className="loginmodal messagebox" id="advertencia">
             <div className="loginformbox" >            
-                <h1 className="mesagetext" id="advertenciaboxtext">quiting this form means the lost the current data, Did you want to quit?</h1>
-                <button className="buton_border blanco" onClick={(e) => exit(e)} >quit</button>
-                <button className="buton_border blanco" onClick={(e) => resume(e)} >resume</button>
+                <h1 className="mesagetext" id="advertenciaboxtext">Perdera los datos, realmente desea salir?</h1>
+                <button className="buton_border blanco" onClick={(e) => exit(e)} >salir</button>
+                <button className="buton_border blanco" onClick={(e) => resume(e)} >seguir captura</button>
             </div>
 
         

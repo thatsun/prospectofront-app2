@@ -47,13 +47,13 @@ const Elemento=(props)=>{
     return (
         <div className="documentoitem" >
         <div className="textboxfile">
-        <input className="documentoname" tag={fileindex} value={filenames[fileindex]} type={"text"} placeholder={"filename"} onChange={(e) => handlechange(e)}></input>
+        <input className="documentoname" tag={fileindex} value={filenames[fileindex]} type={"text"} placeholder={"nombre del documento"} onChange={(e) => handlechange(e)}></input>
         </div>
         <div className="textboxfile">
             <h3 className="documentoitem_text" >{docfilename}</h3>
         </div> 
         <Dropzone tag={fileindex} imagechange={handleimagechange}/>           
-        <button className="deletefile" onClick={(e) => handleclick(e)} >{'remove'}</button>
+        <button className="deletefile" onClick={(e) => handleclick(e)} >{'quitar'}</button>
         </div>
     
     )
@@ -129,7 +129,7 @@ const Archivosmgr= (props) =>{
     
     return(
         <div className="caja1"> 
-            <button className="addfiles" onClick={(e) => addfiles(e)} >{'+ addfiles'}</button>
+            <button className="addfiles" onClick={(e) => addfiles(e)} >{'+ agregararchivo'}</button>
             {
                 files.map((file,index)=>
                     <Elemento key={index} files={files} filenames={filenames} fileindex={index} removefile={removefile} changeimage ={changeimage} changename={changename} show={filepickshow}/>
