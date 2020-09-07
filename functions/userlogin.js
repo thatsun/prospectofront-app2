@@ -4,7 +4,7 @@ exports.handler = async function (event) {
     try {
         // Call the Weather API
         const { data } = await axios({            
-            url: 'https://serverprueba-con.herokuapp.com/login',            
+            url: 'https://serverprueba-con.herokuapp.com/user/login',            
             method: 'POST',
             mode: 'cors',
             body: event.body,
