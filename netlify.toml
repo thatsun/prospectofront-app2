@@ -1,4 +1,4 @@
 [build]
   publish = "build"
   command = "CI=false yarn build"
-  functions = "build"
+  functions = "functions"
