@@ -6,7 +6,7 @@ const API_ENDPOINT = 'https://serverprueba-con.herokuapp.com/user/login'
 exports.handler = async (event, context) => {
   let response
   try {
-    response = await axios.get({
+    response = await axios.post({
         url:API_ENDPOINT,
         body:event.body
     })
