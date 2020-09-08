@@ -32,14 +32,15 @@ const App= () =>{
     const [newuseremail,setnewUseremail]=useState('');
     
 
-    const fetchUser = async (data) => {
+    const fetchUser = async (_data) => {
         
         let body=null;
+        console.log(_data);
     
         //make edit to redeploy
-        fetch(`/functions/userlogin`,
+        fetch("/functions/userlogin",
         {
-            body:data,
+            body:_data,
             method: 'POST'
         })
         .then(resp =>{
