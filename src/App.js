@@ -129,16 +129,16 @@ const App= () =>{
         }
 
         const url = '/user/login';
-        var data = {email: user, password : password};
+        var f_data = {email: user, password : password};
 
         document.getElementById("loadingbox").classList.add("openmodal");
-        fetchUser(data);
+        fetchUser(JSON.stringify.f_data);
         return;
 
         fetch(url, {
             method: 'POST',
             mode: 'cors',
-            body: JSON.stringify(data),
+            body: JSON.stringify(f_data),
             headers: {
             'Content-Type': 'application/json'
             }

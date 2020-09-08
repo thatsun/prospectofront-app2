@@ -11,9 +11,9 @@ exports.handler = async (event, context,callback) => {
         url:API_ENDPOINT,
         body:event.body,
         method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify(data),
-            headers: {
+        mode: 'cors',
+        body: event.body,
+        headers: {
             'Content-Type': 'application/json'
         }
     })
