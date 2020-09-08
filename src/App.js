@@ -30,26 +30,21 @@ const App= () =>{
     const [newuserpassword,setnewUserPassword]=useState('');
     const [newusername,setnewUserName]=useState('');
     const [newuseremail,setnewUseremail]=useState('');
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState(false);
+    
 
     const fetchUser = (data) => {
         
-        setLoading(true)
-        setError(false)
+        
     
         //make edit to redeploy
-        axios.post('/functions/userlogin',{body:JSON.stringify(data)})
-          .then((data) => {
-            console.log(data);
-          })
-          .catch(e => {
-            setError(true)
-            console.log(e)
-          })
-          .finally(() => {
-            setLoading(false)
-          })
+        const fetchResult = await fetch(`/functions/${path}`,{body:data})
+        body = await fetchResult.json()
+
+        document.getElementById('data').innerText += JSON.stringify(body)
+
+        console.log(body);
+
+        return Promise.resolve(body);
 
     }
 

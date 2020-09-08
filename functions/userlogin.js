@@ -7,12 +7,14 @@ exports.handler = async (event, context,callback) => {
   let response
   console.log(event.body);
   try {
-    response = await axios.post({
+    response = await fetch({
         url:API_ENDPOINT,
         body:event.body,
-        mode: 'cors',
-        headers: {
-           'Content-Type': 'application/json'
+        method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify(data),
+            headers: {
+            'Content-Type': 'application/json'
         }
     })
   } catch (err) {
@@ -25,9 +27,7 @@ exports.handler = async (event, context,callback) => {
   }
 
   return callback(null, {
-    statusCode: 200,
-    body: JSON.stringify({
-      data: response.data
-    })
+        statusCode: 200,
+        body: JSON.stringify({data: response.data})
   })
 }
