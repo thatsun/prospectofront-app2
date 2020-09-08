@@ -32,7 +32,7 @@ const App= () =>{
     const [newuseremail,setnewUseremail]=useState('');
     
 
-    const fetchUser = (data) => {
+    const fetchUser = async (data) => {
         
         
     
