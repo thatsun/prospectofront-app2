@@ -34,15 +34,21 @@ const App= () =>{
 
     const fetchUser = async (data) => {
         
-        
+        let body=null;
     
         //make edit to redeploy
-        const fetchResult = await fetch(`/functions/${path}`,{body:data})
-        body = await fetchResult.json()
-
-        document.getElementById('data').innerText += JSON.stringify(body)
-
-        console.log(body);
+        fetch(`/functions/userlogin`,{body:data})
+        .then(resp =>{
+            resp.json()
+        })
+        .then(data =>{
+            console.log(data);
+            body=data;
+        })
+        .catch(err => {
+            console.log(err);
+            
+        });  
 
         return Promise.resolve(body);
 
