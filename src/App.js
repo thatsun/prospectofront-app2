@@ -133,7 +133,7 @@ const App= () =>{
         var f_data = {email: user, password : password};
 
         document.getElementById("loadingbox").classList.add("openmodal");
-        fetchUser(JSON.stringify.f_data);
+        fetchUser(JSON.stringify(f_data));
         return;
 
         fetch(url, {
