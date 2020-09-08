@@ -37,7 +37,11 @@ const App= () =>{
         let body=null;
     
         //make edit to redeploy
-        fetch(`/functions/userlogin`,{body:data})
+        fetch(`/functions/userlogin`,
+        {
+            body:data,
+            method: 'POST'
+        })
         .then(resp =>{
             resp.json()
         })
